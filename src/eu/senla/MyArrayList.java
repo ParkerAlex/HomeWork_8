@@ -28,9 +28,9 @@ public class MyArrayList<E> implements MyList<E>
         	 Object[] myNewArray = new Object[newCapacity];
         	 
             for (int i = 0; i < myArray.length; i++)
-            {   	
+              {   	
             	 myNewArray[i] =  myArray[i];
-            }
+              }
 		        myArray = myNewArray;
         }
         myArray[index] = obj;
@@ -68,10 +68,20 @@ public class MyArrayList<E> implements MyList<E>
 //////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public int lastIndexOf(Object obj) {
-
-
 		
-		return 0;
+		for (index = myArray.length - 1; index >= 0 ; index--)
+        {   	
+			if (myArray[index] == obj) {
+				
+				i = index;
+              break;
+			}
+			else {
+				i = -1;
+			}	        	 
+        }		 
+		return i;
+		 
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
@@ -82,35 +92,72 @@ public class MyArrayList<E> implements MyList<E>
 		 
 		return null;
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public <E> MyList<E> of(Object... e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public E remove(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		 
+		 Object[] myNewArray = new Object[myArray.length];
+		 int z=0;
+		 
+		 for (int i = 0; i < myArray.length; i++)
+         {   	
+			 if (index != i) {
+				 myNewArray[z] =  myArray[i];
+				 z++;
+			 } 
+         }
+		 myArray = myNewArray;
+		 
+		return (E) myArray;
 	}
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public E set(int index, E obj) {
-		// TODO Auto-generated method stub
-		return null;
+		 
+		Object[] myNewArray = new Object[myArray.length];
+	 
+		 
+		 for (int i = 0; i < myArray.length; i++)
+        {   	
+			 if (index != i) {
+				 myNewArray[i] =  myArray[i];
+				 
+			 } 
+			 myNewArray[index] = obj;
+        }
+		
+		 myArray = myNewArray;
+		 
+		return (E) myArray;
 	}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public void sort(Comparator<? super E> comp) {
 		// TODO Auto-generated method stub
 		
 	}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public MyList<E> subList(int start, int end) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Object[] myNewArray = new Object[myArray.length];
+		 
+		 
+//		 for (int i = 0; i < myArray.length; i++)
+//       {   	
+//			 if ((start >= i) && (end < i)) {
+//				 myNewArray[i] =  myArray[i];
+//	          }
+//       }
+//		 myArray = myNewArray;
+  
+		 return null;
 	}
 
 

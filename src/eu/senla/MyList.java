@@ -13,8 +13,8 @@ public interface MyList<E> {
 	E get(int index);
 	int indexOf(Object obj);
 	int lastIndexOf(Object obj);
-	
 	ListIterator<E> listIterator ();
+	
 	<E> MyList<E> of(Object...e);
 	E remove(int index);
 	E set(int index, E obj);
